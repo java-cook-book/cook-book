@@ -1,48 +1,47 @@
 package cookbook.controller;
 
-import cookbook.service.RecipesService;
+import cookbook.service.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import cookbook.model.Recipes;
+import cookbook.model.Recipe;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class RecipesController {
+public class RecipeController {
 
-    private RecipesService recipesService;
+    private RecipeService recipeService;
 
-    public RecipesController(RecipesService recipesService) {
-        this.recipesService = recipesService;
+    public RecipeController(RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @GetMapping("")
-    public String recipesList(ModelMap modelMap) {
-        modelMap.addAttribute("recipes", recipesService.getAll());
+    public String recipeList(ModelMap modelMap) {
+        modelMap.addAttribute("recipe", recipeService.getAll());
 
         return "";
     }
 
     @GetMapping("")
     public String showCreateNewRecipes(ModelMap modelMap) {
-        modelMap.addAttribute("emptyRecipes", new Recipes());
+        modelMap.addAttribute("emptyRecipes", new Recipe());
 
         return "";
     }
 
 
     @PostMapping("")
-    public String handleNewRecipes(@Validated @ModelAttribute("emptyRecipes") Recipes recipes, Errors errors) {
+    public String handleNewRecipes(@Validated @ModelAttribute("emptyRecipe") Recipe recipe, Errors errors) {
 
         if(errors.hasErrors()){
             return "";
         }
 
-        recipesService.save(recipes);
+        recipeService.save(recipe);
         return "";
     }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe list</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>RecipeName</th>
+        <th>Description</th>
+        <th>Ingredients</th>
+        <th>Directions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+
+        <td th:text="${recipeStat.recipeName}"/>
+        <td th:text="${recipeStat.description}"/>
+        <td th:text="${recipeStat.ingredients}"/>
+        <td th:text="${recipeStat.directions}"/>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

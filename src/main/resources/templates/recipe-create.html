@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Create</title>
+</head>
+<body>
+<a th:href="@{/recipe-list.html}">Return to recipe list</a>
+<form method="post" th:action="@{/recipe/save}" th:object="${emptyRecipe}">
+
+    <label>
+        Tytuł:
+        <input type="text" th:field="*{recipeName}"/>
+        <td th:if="${#fields.hasErrors('recipeName')}" th:errors="*{recipeName}"/>
+    </label>
+
+    <label>
+        Autor:
+        <input type="text" th:field="*{descrition}"/>
+        <td th:if="${#fields.hasErrors('descrition')}" th:errors="*{descrition}"/>
+    </label>
+
+    <label>
+        ISBN:
+        <input type="text" th:field="*{ingredients}"/>
+        <td th:if="${#fields.hasErrors('ingredients')}" th:errors="*{ingredients}"/>
+    </label>
+
+    <label>
+        Opis:
+        <input type="text" th:field="*{directions}"/>
+    </label>
+
+    <button type="submit">Dodaj Przepis</button>
+
+</form>
+</body>
+</html>

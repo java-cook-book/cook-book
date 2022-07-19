@@ -1,49 +1,33 @@
 package cookbook.service.impl;
 
 import cookbook.model.Recipe;
-import cookbook.repository.RecipeRepository;
 import cookbook.service.RecipeService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
-    private final RecipeRepository recipeRepository;
+    private List<Recipe> recipes;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
-        this.recipeRepository = recipeRepository;
+    private static int counter;
+
+    public RecipeServiceImpl() {
+        recipes = new ArrayList<>();
+        recipes.add(new Recipe(1, "Makaron", "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól", "Gotuj aż bedzie miękki"));
+        counter = 1;
     }
 
     @Override
     public void save(Recipe recipe) {
-        recipeRepository.save(recipe);
-    }
-
-    @Override
-    public void deleteByRecipeName(String recipeName) {
-        Recipe recipe = getByRecipeName(recipeName);
-        recipeRepository.deleteById(recipe.getId());
-
-    }
-
-    @Override
-    public void update(Recipe recipe) {
-        recipeRepository.save(recipe);
+        recipe.setId(++counter);
+        recipes.add(recipe);
     }
 
     @Override
     public List<Recipe> getAll() {
-        return recipeRepository.findAll();
+        return recipes;
     }
 
-    @Override
-    public Recipe getById(Integer id) {
-        return recipeRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public Recipe getByRecipeName(String recipeName) {
-        return recipeRepository.findByRecipeName(recipeName);
-    }
 }

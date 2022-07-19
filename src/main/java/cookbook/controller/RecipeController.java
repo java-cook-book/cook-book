@@ -1,6 +1,7 @@
 package cookbook.controller;
 
 import cookbook.service.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
@@ -12,36 +13,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RecipeController {
-
+    @Autowired
     private RecipeService recipeService;
 
-    public RecipeController(RecipeService recipeService) {
-        this.recipeService = recipeService;
+
+    @GetMapping("/recipes/create")
+    public String showRecipeForm(ModelMap modelMap) {
+        modelMap.addAttribute("emptyRecipe", new Recipe());
+        return "recipe-create";
     }
 
-    @GetMapping("")
-    public String recipeList(ModelMap modelMap) {
-        modelMap.addAttribute("recipe", recipeService.getAll());
-
-        return "";
-    }
-
-    @GetMapping("")
-    public String showCreateNewRecipes(ModelMap modelMap) {
-        modelMap.addAttribute("emptyRecipes", new Recipe());
-
-        return "";
-    }
-
-
-    @PostMapping("")
-    public String handleNewRecipes(@Validated @ModelAttribute("emptyRecipe") Recipe recipe, Errors errors) {
-
-        if(errors.hasErrors()){
-            return "";
-        }
-
+    @PostMapping("/recipes/save")
+    public String handleNewRecipe(@ModelAttribute("emptyRecipe") Recipe recipe) {
         recipeService.save(recipe);
-        return "";
+        return "redirect:/recipes/list";
+    }
+
+    @GetMapping("/recipes/list")
+    public String showRecipes(ModelMap modelMap) {
+        modelMap.addAttribute("recipes", recipeService.getAll());
+        return "recipe-list";
     }
 }

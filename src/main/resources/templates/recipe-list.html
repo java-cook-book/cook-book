@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Recipe list</title>
@@ -8,6 +8,7 @@
 <table>
     <thead>
     <tr>
+        <th>Id</th>
         <th>RecipeName</th>
         <th>Description</th>
         <th>Ingredients</th>
@@ -16,11 +17,11 @@
     </thead>
     <tbody>
     <tr th:each="recipe : ${recipes}">
-
-        <td th:text="${recipeStat.recipeName}"/>
-        <td th:text="${recipeStat.description}"/>
-        <td th:text="${recipeStat.ingredients}"/>
-        <td th:text="${recipeStat.directions}"/>
+        <td th:text="${recipe.id}" />
+        <td th:text="${recipe.recipeName}"/>
+        <td th:text="${recipe.description}"/>
+        <td th:text="${recipe.ingredients}"/>
+        <td th:text="${recipe.directions}"/>
 
     </tr>
     </tbody>

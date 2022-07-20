@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe details</title>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+    <tr>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Ingredients</th>
+        <th scope="col">Directions</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${recipe.id}"/>
+    <td th:text="${recipe.recipeName}"/>
+    <td th:text="${recipe.description}"/>
+    <td th:text="${recipe.ingredients}"/>
+    <td th:text="${recipe.directions}"/>
+    </tbody>
+</table>
+
+<a th:href="@{/recipes/list}">Return to recipe list</a>
+
+</body>
+</html>

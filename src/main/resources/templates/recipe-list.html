@@ -11,8 +11,7 @@
         <th>Id</th>
         <th>RecipeName</th>
         <th>Description</th>
-        <th>Ingredients</th>
-        <th>Directions</th>
+
     </tr>
     </thead>
     <tbody>
@@ -20,8 +19,8 @@
         <td th:text="${recipe.id}" />
         <td th:text="${recipe.recipeName}"/>
         <td th:text="${recipe.description}"/>
-        <td th:text="${recipe.ingredients}"/>
-        <td th:text="${recipe.directions}"/>
+
+        <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
 
     </tr>
     </tbody>

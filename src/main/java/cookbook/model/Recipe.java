@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//klasa POJO - plain old java object - reprezentuje obiekt rzeczywisty
 public class Recipe {
 
     private Integer id;

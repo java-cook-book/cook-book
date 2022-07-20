@@ -11,6 +11,10 @@ public interface RecipeService {
 
     List<Recipe> getAll();
 
+    void deleteById(Integer id);
+
+    Recipe getById(Integer id);
+
 
 
 }

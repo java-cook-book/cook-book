@@ -30,4 +30,20 @@ public class RecipeServiceImpl implements RecipeService {
         return recipes;
     }
 
+    @Override
+    public void deleteById(Integer id) {
+       recipes.remove(id);
+    }
+
+    @Override
+    public Recipe getById(Integer id) {
+        for (Recipe recipe : recipes){
+            if(recipe.getId().equals(id)){
+                return recipe;
+            }
+      }
+
+    return null;
+
+  }
 }

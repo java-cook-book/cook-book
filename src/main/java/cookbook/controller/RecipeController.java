@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import cookbook.model.Recipe;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -33,5 +34,10 @@ public class RecipeController {
     public String showRecipes(ModelMap modelMap) {
         modelMap.addAttribute("recipes", recipeService.getAll());
         return "recipe-list";
+    }
+    @GetMapping("/recipes/{id}")
+    public String recipeDetails(@PathVariable Integer id, ModelMap modelMap){
+        modelMap.addAttribute("recipe", recipeService.getById(id));
+        return "recipe-details";
     }
 }

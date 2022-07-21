@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe edit</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/recipes/update}" th:object="${recipe}">
+
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>
+        Name:
+        <input type="text" th:field="*{recipeName}"/>
+    </label>
+
+    <label>
+        Description:
+        <input type="text" th:field="*{description}"/>
+    </label>
+
+    <label>
+        Ingredients:
+        <input type="text" th:field="*{ingredients}"/>
+    </label>
+
+    <label>
+        Directions:
+        <input type="text" th:field="*{directions}"/>
+    </label>
+
+
+
+    <button type="submit">Update recipe</button>
+
+</form>
+
+</body>
+</html>

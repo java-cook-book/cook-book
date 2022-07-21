@@ -34,7 +34,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public void deleteById(Integer id) {
-       recipes.remove(id);
+        recipes.removeIf(r -> r.getId().equals(id));
+
     }
 
     @Override

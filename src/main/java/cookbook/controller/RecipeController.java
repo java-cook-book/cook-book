@@ -47,4 +47,23 @@ public class RecipeController {
         recipeService.deleteById(id);
         return "redirect:/recipes/list";
     }
+
+    @GetMapping("/recipes/edit/{id}")
+    public String showEditRecipeForm(@PathVariable Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("recipe", recipeService.getById(id));
+        return "recipe-edit";
+    }
+
+    @PostMapping("/recipes/update")
+    public String handleUpdatedRecipe(@ModelAttribute("recipe") Recipe recipe, Errors errors) {
+        log.info("Handle recipe to update: " + recipe);
+
+        if (errors.hasErrors()) {
+            log.error("Errors form frontend: " + errors.getFieldErrors());
+            return "recipe-edit";
+        }
+
+        recipeService.save(recipe);
+        return "redirect:/recipes/list";
+    }
 }

@@ -21,6 +21,7 @@
         <td th:text="${recipe.description}"/>
 
         <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
+        <td><a th:href="@{/recipes/delete/{id}/(recipe.id=${recipe.isbn})}">delete</a> </td>
 
     </tr>
     </tbody>

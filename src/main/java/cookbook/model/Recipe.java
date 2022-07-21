@@ -4,6 +4,9 @@ package cookbook.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 
 @Data
@@ -21,4 +24,8 @@ public class Recipe {
     private String ingredients;
 
     private String directions;
+
+//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  //można dodać date kiedy User wstawia nowy przepis
+//    private LocalDate releaseDate;
+
 }

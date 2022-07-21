@@ -8,10 +8,9 @@ public interface RecipeService {
 
     void save(Recipe recipe);
 
-
     List<Recipe> getAll();
 
-    void deleteById(Integer id);
+    void deleteById(Integer id); //Zrobiłem usówanie z ID ale zastanawiam się czy nie lepiej będzie z recipeName bo z kąd User będzie znał ID??
 
     Recipe getById(Integer id);
 

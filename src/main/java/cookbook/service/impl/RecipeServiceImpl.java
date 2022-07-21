@@ -15,7 +15,9 @@ public class RecipeServiceImpl implements RecipeService {
 
     public RecipeServiceImpl() {
         recipes = new ArrayList<>();
-        recipes.add(new Recipe(1, "Makaron", "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól", "Gotuj aż bedzie miękki"));
+        recipes.add(new Recipe(1, "Makaron",
+                "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól",
+                "Gotuj aż bedzie miękki"));
         counter = 1;
     }
 

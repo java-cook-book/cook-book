@@ -2,9 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
     <title>Recipe Create</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+    </ul>
+</nav>
 <form method="post" th:action="@{/recipes/save}" th:object="${emptyRecipe}">
 
     Nazwa Przepisu:

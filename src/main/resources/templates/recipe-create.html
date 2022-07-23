@@ -6,6 +6,11 @@
     <title>Recipe Create</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+    </ul>
+</nav>
 <form method="post" th:action="@{/recipes/save}" th:object="${emptyRecipe}">
 
     Nazwa Przepisu:
@@ -16,6 +21,8 @@
     <input type="text" th:field="*{ingredients}">
     Wskazówki:
     <input type="text" th:field="*{directions}">
+    Data:
+    <input type="text" th:field="*{releaseDate}">
 
     <button type="submit">Dodaj Przepis</button>
 

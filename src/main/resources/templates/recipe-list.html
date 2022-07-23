@@ -2,24 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
     <title>Recipe list</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
 </head>
 <body>
 <table>
+    <nav>
+        <ul>
+        <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+         </ul>
+    </nav>
     <thead>
     <tr>
         <th>Id</th>
         <th>RecipeName</th>
         <th>Description</th>
+        <th>ReleaseDate</th>
 
     </tr>
     </thead>
     <tbody>
     <tr th:each="recipe : ${recipes}">
+
         <td th:text="${recipe.id}" />
         <td th:text="${recipe.recipeName}"/>
         <td th:text="${recipe.description}"/>
+        <td th:text="${recipe.releaseDate}"/>
 
         <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
         <td><a th:href="@{/recipes/edit/{id}/(id=${recipe.id})}">edit</a></td>

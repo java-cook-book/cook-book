@@ -34,10 +34,29 @@
     <td th:text="${recipe.releaseDate}"/>
     </tbody>
 </table>
+<table>
+    <form method="post" th:action="@{/comments/save}" th:object="${emptyComment}">
+
+    Username:
+    <input type="text" th:field="*{userName}">
+    <div>
+    Content:
+    <input th:field="*{content}">
+        <textarea
+                id="message"
+                name="message"
+                rows="5"
+                cols="40"
+                placeholder="Comments"
+        ></textarea>
+    </div>
+    <button type="submit">Create Comments</button>
+    </form>
+</table>
 
 <td><a th:href="@{/comments/create}">add comment</a> </td>
 <td><a th:href="@{/recipes/{id}/comments/(id=${recipe.id})}">view comments</a> </td>
-<a th:href="@{/recipes/list}">Return to recipe list</a>
+<td><a th:href="@{/recipes/list}">Return to recipe list</a></td>
 
 </body>
 </html>

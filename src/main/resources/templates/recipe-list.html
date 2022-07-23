@@ -30,6 +30,7 @@
         <td th:text="${recipe.description}"/>
         <td th:text="${recipe.releaseDate}"/>
 
+        <td><a th:href="@{/recipes/create/{id}/(id=${recipe.id})}">create</a> </td>
         <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
         <td><a th:href="@{/recipes/edit/{id}/(id=${recipe.id})}">edit</a></td>
         <td><a th:href="@{/recipes/delete/{id}/(id=${recipe.id})}">delete</a> </td>
@@ -37,5 +38,7 @@
     </tr>
     </tbody>
 </table>
+
+
 </body>
 </html>

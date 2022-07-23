@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
     <title>Recipe details</title>
 </head>
 <body>
@@ -27,6 +28,8 @@
     </tbody>
 </table>
 
+<td><a th:href="@{/comments/create}">add comment</a> </td>
+<td><a th:href="@{/recipes/{id}/comments/(id=${recipe.id})}">view comments</a> </td>
 <a th:href="@{/recipes/list}">Return to recipe list</a>
 
 </body>

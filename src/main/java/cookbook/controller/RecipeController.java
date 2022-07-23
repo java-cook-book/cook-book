@@ -18,7 +18,7 @@ public class RecipeController {
     private RecipeService recipeService;
 
     @GetMapping("/")
-    public String showHomePage(ModelMap modelMap) {
+    public String index(ModelMap modelMap) {
         modelMap.addAttribute("recipes", recipeService.getAll());
         return "recipe-list";
     }

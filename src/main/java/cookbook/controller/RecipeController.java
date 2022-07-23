@@ -17,6 +17,11 @@ public class RecipeController {
     @Autowired
     private RecipeService recipeService;
 
+    @GetMapping("/")
+    public String showHomePage(ModelMap modelMap) {
+        modelMap.addAttribute("recipes", recipeService.getAll());
+        return "recipe-list";
+    }
 
     @GetMapping("/recipes/create")
     public String showRecipeForm(ModelMap modelMap) {

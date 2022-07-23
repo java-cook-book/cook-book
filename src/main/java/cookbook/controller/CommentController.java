@@ -4,7 +4,6 @@ import cookbook.model.Comment;
 import cookbook.model.Recipe;
 import cookbook.service.CommentService;
 import cookbook.service.RecipeService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.management.openmbean.CompositeData;
-@Slf4j
+
 @Controller
 public class CommentController {
 
@@ -26,7 +25,7 @@ public class CommentController {
     @GetMapping("comments/create")
     public String showCommentForm(ModelMap modelMap) {
         modelMap.addAttribute("emptyComment", new Comment());
-        return "recipe-details";
+        return "comment-create";
     }
 
     @PostMapping("/comments/{id}/save")
@@ -41,4 +40,5 @@ public class CommentController {
         modelMap.addAttribute("recipes", recipeService.getById(id));
         return "redirect:/recipe-details";
     }
+
 }

@@ -6,6 +6,11 @@
     <title>Recipe details</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+    </ul>
+</nav>
 
 <table class="table">
     <thead>
@@ -16,6 +21,7 @@
         <th scope="col">Description</th>
         <th scope="col">Ingredients</th>
         <th scope="col">Directions</th>
+        <th scope="col">Data</th>
 
     </tr>
     </thead>
@@ -25,6 +31,7 @@
     <td th:text="${recipe.description}"/>
     <td th:text="${recipe.ingredients}"/>
     <td th:text="${recipe.directions}"/>
+    <td th:text="${recipe.releaseDate}"/>
     </tbody>
 </table>
 

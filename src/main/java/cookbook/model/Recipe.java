@@ -8,7 +8,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +24,7 @@ public class Recipe {
 
     private String directions;
 
-//    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)  //można dodać date kiedy User wstawia nowy przepis
-//    private LocalDate releaseDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate releaseDate;
 
 }

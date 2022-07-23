@@ -11,14 +11,17 @@
         <th>Id</th>
         <th>RecipeName</th>
         <th>Description</th>
+        <th>ReleaseDate</th>
 
     </tr>
     </thead>
     <tbody>
     <tr th:each="recipe : ${recipes}">
+
         <td th:text="${recipe.id}" />
         <td th:text="${recipe.recipeName}"/>
         <td th:text="${recipe.description}"/>
+        <td th:text="${recipe.releaseDate}"/>
 
         <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
         <td><a th:href="@{/recipes/edit/{id}/(id=${recipe.id})}">edit</a></td>

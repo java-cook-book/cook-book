@@ -2,8 +2,10 @@ package cookbook.service.impl;
 
 import cookbook.model.Recipe;
 import cookbook.service.RecipeService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class RecipeServiceImpl implements RecipeService {
         recipes = new ArrayList<>();
         recipes.add(new Recipe(1, "Makaron",
                 "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól",
-                "Gotuj aż bedzie miękki"));
+                "Gotuj aż bedzie miękki", LocalDate.now()));
         counter = 1;
     }
 

@@ -47,8 +47,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public Object getById(Integer id) {
 
-        return recipeRepository.findById(id).orElseThrow(()->
-                new RuntimeException("Recipe doesn't exist"));
+        return null;
     }
 
 

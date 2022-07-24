@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RecipeController {
     @Autowired
-    private RecipeService recipeService;
-
+    private final RecipeService recipeService;
+    public RecipeController (RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
 
     @GetMapping("/recipes/create")
     public String showRecipeForm(ModelMap modelMap) {

@@ -22,6 +22,11 @@ public class CommentController {
     @Autowired
     private RecipeService recipeService;
 
+    public CommentController(RecipeService recipeService, CommentService commentService){
+        this.commentService = commentService;
+        this.recipeService = recipeService;
+    }
+
     @GetMapping("comments/create")
     public String showCommentForm(ModelMap modelMap) {
         modelMap.addAttribute("emptyComment", new Comment());

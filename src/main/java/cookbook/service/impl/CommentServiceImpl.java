@@ -16,11 +16,11 @@ public class CommentServiceImpl implements CommentService {
     public CommentServiceImpl() {
         comments = new ArrayList<>();
         comments.add(new Comment("ciekawy przepis, ale dodałabym więcej soli", "piekarowa" ));
-
     }
 
     @Override
     public void save(Comment comment) {
+
         comments.add(comment);
     }
 

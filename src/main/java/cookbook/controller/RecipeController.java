@@ -5,6 +5,7 @@ import cookbook.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,9 @@ import cookbook.model.Recipe;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
+
 @Slf4j
 @Controller
 public class RecipeController {
@@ -34,8 +38,9 @@ public class RecipeController {
     }
 
     @GetMapping("/recipes/list")
-    public String showRecipes(ModelMap modelMap) {
-        modelMap.addAttribute("recipes", recipeService.getAll());
+    public String showRecipes(Model model) {
+        List<Recipe> recipeList = recipeService.getAll();
+        model.addAttribute("recipes", recipeService.getAll());
         return "recipe-list";
     }
     @GetMapping("/recipes/{id}")
@@ -67,5 +72,12 @@ public class RecipeController {
 
         recipeService.save(recipe);
         return "redirect:/recipes/list";
+    }
+    @GetMapping("/recipes/list/search/{tag}")
+    public String searchRecipeByTag(Model model, @PathVariable String tag) {
+        List<Recipe> recipes = recipeService.findByTag(tag);
+        model.addAttribute("recipes", recipes);
+        model.addAttribute("tag",tag);
+        return "recipe-list-search";
     }
 }

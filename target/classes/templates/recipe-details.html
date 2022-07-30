@@ -16,21 +16,21 @@
     <thead>
     <tr>
     <tr>
-        <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Description</th>
         <th scope="col">Ingredients</th>
         <th scope="col">Directions</th>
+        <th scope="col">Tag</th>
         <th scope="col">Data</th>
 
     </tr>
     </thead>
     <tbody>
-    <td th:text="${recipe.id}"/>
     <td th:text="${recipe.recipeName}"/>
     <td th:text="${recipe.description}"/>
     <td th:text="${recipe.ingredients}"/>
     <td th:text="${recipe.directions}"/>
+    <td th:text="${recipe.tag}"/>
     <td th:text="${recipe.releaseDate}"/>
     </tbody>
 </table>

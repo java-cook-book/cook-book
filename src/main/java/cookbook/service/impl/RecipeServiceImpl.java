@@ -1,6 +1,6 @@
 package cookbook.service.impl;
 
-import cookbook.entity.RecipeEntity;
+
 import cookbook.model.Recipe;
 import cookbook.repository.RecipeRepository;
 import cookbook.service.RecipeService;
@@ -19,24 +19,16 @@ public class RecipeServiceImpl implements RecipeService {
 
     public RecipeServiceImpl(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
-        initData(recipeRepository);
     }
-
-
-
     @Override
     public void save(Recipe recipe) {
-        recipeRepository.save(new RecipeEntity());
+        recipeRepository.save(recipe);
 
     }
 
     @Override
     public List<Recipe> getAll() {
-        return recipeRepository.
-                findAll()
-                .stream()
-                .map(e -> Recipe.from(e))
-                .collect(Collectors.toList());
+        return recipeRepository.findAll();
     }
 
     @Override
@@ -45,7 +37,7 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     public void update(Recipe recipe){
-        recipeRepository.save(new RecipeEntity());
+        recipeRepository.save(recipe);
     }
 
 
@@ -55,13 +47,6 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
 
-    private void initData(RecipeRepository recipeRepository) {
-        List<RecipeEntity> recipes = new ArrayList<RecipeEntity>();
-        recipes.add(new RecipeEntity(1, "Makaron",
-                "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól",
-                "Gotuj aż bedzie miękki", LocalDate.now()));
 
-        recipeRepository.saveAll(recipes);
-    }
 
 }

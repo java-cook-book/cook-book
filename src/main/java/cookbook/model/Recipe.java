@@ -1,7 +1,7 @@
 package cookbook.model;
 
 
-import cookbook.entity.RecipeEntity;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@Entity
 //klasa POJO - plain old java object - reprezentuje obiekt rzeczywisty
 public class Recipe {
     @Id
@@ -30,15 +30,8 @@ public class Recipe {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate releaseDate;
 
-    public static Recipe from(RecipeEntity entity) {
-        return new Recipe(entity.getId(),
-                entity.getRecipeName(),
-                entity.getDescription(),
-                entity.getIngredients(),
-                entity.getDirections(),
-                entity.getReleaseDate()
 
-        );
-    }
+
+
 
 }

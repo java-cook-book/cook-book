@@ -8,7 +8,7 @@
 <body>
 <nav>
     <ul>
-        <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+        <li><a href="./recipe-list.html"><img src="../assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
     </ul>
 </nav>
 
@@ -35,8 +35,8 @@
     </tbody>
 </table>
 
-<td><a th:href="@{/comments/create}">add comment</a> </td>
-<td><a th:href="@{/recipes/{id}/comments/(id=${recipe.id})}">view comments</a> </td>
+<td><a th:href="@{/comments/create}">Add comment</a> </td>
+<td><a th:href="@{/recipes/{id}/comments/(id=${recipe.id})}">View comments</a> </td>
 <a th:href="@{/recipes/list}">Return to recipe list</a>
 
 </body>

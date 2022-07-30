@@ -1,5 +1,6 @@
 package cookbook.controller;
 
+import cookbook.entity.RecipeEntity;
 import cookbook.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class RecipeController {
 
     @PostMapping("/recipes/save")
     public String handleNewRecipe(@ModelAttribute("emptyRecipe") Recipe recipe) {
-        recipeService.save(recipe);
+        recipeService.save(Recipe.from(new RecipeEntity()));
         return "redirect:/recipes/list";
     }
 

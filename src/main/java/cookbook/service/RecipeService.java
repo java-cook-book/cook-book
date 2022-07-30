@@ -14,6 +14,8 @@ public interface RecipeService {
 
     Object getById(Integer id);
 
+    void update(Recipe recipe);
+
 
 
 

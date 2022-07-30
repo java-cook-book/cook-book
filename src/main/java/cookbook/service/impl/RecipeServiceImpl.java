@@ -27,6 +27,7 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public void save(Recipe recipe) {
         recipeRepository.save(new RecipeEntity());
+
     }
 
     @Override
@@ -41,6 +42,10 @@ public class RecipeServiceImpl implements RecipeService {
     @Override
     public void deleteById(Integer id) {
         recipeRepository.deleteById(id);
+    }
+
+    public void update(Recipe recipe){
+        recipeRepository.save(new RecipeEntity());
     }
 
 

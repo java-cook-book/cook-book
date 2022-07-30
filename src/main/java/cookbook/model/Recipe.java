@@ -15,7 +15,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 //klasa POJO - plain old java object - reprezentuje obiekt rzeczywisty
 public class Recipe {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String recipeName;

@@ -19,9 +19,10 @@
 
         <th>RecipeName</th>
         <th>Description</th>
-        <th>ReleaseDate</th>
         <th>Ingredients</th>
         <th>Directions</th>
+        <th>Tag</th>
+        <th>ReleaseDate</th>
 
     </tr>
     </thead>
@@ -31,16 +32,15 @@
         <td th:text="${recipe.description}"/>
         <td th:text="${recipe.ingredients}"/>
         <td th:text="${recipe.directions}"/>
+        <td th:text="${recipe.tag}"/>
         <td th:text="${recipe.releaseDate}"/>
 
 
         <td><a th:href="@{/recipes/{id}/(id=${recipe.id})}">details</a></td>
         <td><a th:href="@{/recipes/edit/{id}/(id=${recipe.id})}">edit</a></td>
         <td><a th:href="@{/recipes/delete/{id}/(id=${recipe.id})}">delete</a> </td>
-
     </tr>
     </tbody>
 </table>
-<td><a th:href="@{/recipes/create/}">add new recipe</a> </td>
 </body>
 </html>

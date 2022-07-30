@@ -12,9 +12,13 @@ public interface RecipeService {
 
     void deleteById(Integer id);
 
-    Object getById(Integer id);
+    Recipe getById(Integer id);
+
+ List<Recipe> findByTag(String tag);
 
     void update(Recipe recipe);
+
+
 
 
 

@@ -42,7 +42,7 @@ public class RecipeController {
         modelMap.addAttribute("recipe", recipeService.getById(id));
         return "recipe-details";
     }
-    @GetMapping("/recipes/delete/{id}") // zastanómy się czy po nazwie przepisu czy po ID bo nazwe zna User Id nie koniecznie
+    @GetMapping("/recipes/delete/{id}")
     public String deleteBook(@PathVariable Integer id){
         log.info("deleted Recipe by id with  " + id);
         recipeService.deleteById(id);

@@ -40,14 +40,13 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public void deleteById(Integer id) {
-
+        recipeRepository.deleteById(id);
     }
 
 
     @Override
-    public Object getById(Integer id) {
-
-        return null;
+    public Recipe getById(Integer id) {
+        return recipeRepository.findById(id).orElse(null);
     }
 
 

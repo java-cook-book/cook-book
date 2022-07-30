@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @Table(name = "recipe")
 @NoArgsConstructor
 @AllArgsConstructor
-public class RecipeEntity {
+public class RecipeEntity extends Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

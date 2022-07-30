@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 public class    CookBook1Application {
 
     public static void main(String[] args) {
+
         SpringApplication.run(CookBook1Application.class, args);
     }
 

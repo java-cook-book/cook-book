@@ -1,57 +1,50 @@
 package cookbook.service.impl;
 
+
 import cookbook.model.Recipe;
+import cookbook.repository.RecipeRepository;
 import cookbook.service.RecipeService;
-import org.springframework.format.annotation.DateTimeFormat;
+
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Service
 public class RecipeServiceImpl implements RecipeService {
-    private List<Recipe> recipes;
 
-    private static int counter;
+    private final RecipeRepository recipeRepository;
 
-    public RecipeServiceImpl() {
-        recipes = new ArrayList<>();
-        recipes.add(new Recipe(1, "Makaron",
-                "Ugotuj makaron w wodzie. Dodaj sól", "Makaron, sól",
-                "Gotuj aż bedzie miękki", LocalDate.now()));
-        counter = 1;
+    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+        this.recipeRepository = recipeRepository;
     }
-
     @Override
     public void save(Recipe recipe) {
-        recipe.setId(++counter);
-        recipes.add(recipe);
+        recipeRepository.save(recipe);
+
     }
 
     @Override
     public List<Recipe> getAll() {
-        return recipes;
+        return recipeRepository.findAll();
     }
 
     @Override
     public void deleteById(Integer id) {
-        recipes.removeIf(r -> r.getId().equals(id));
-
+        recipeRepository.deleteById(id);
     }
+
+    public void update(Recipe recipe){
+        recipeRepository.save(recipe);
+    }
+
 
     @Override
     public Recipe getById(Integer id) {
-        for (Recipe recipe : recipes){
-            if(recipe.getId().equals(id)){
-                return recipe;
-            }
-      }
+        return recipeRepository.findById(id).orElse(null);
+    }
 
-    return null;
 
-  }
 
 
 }

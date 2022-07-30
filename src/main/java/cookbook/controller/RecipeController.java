@@ -1,5 +1,6 @@
 package cookbook.controller;
 
+
 import cookbook.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RecipeController {
     @Autowired
-    private RecipeService recipeService;
-
-    @GetMapping("/")
-    public String index(ModelMap modelMap) {
-        modelMap.addAttribute("recipes", recipeService.getAll());
-        return "recipe-list";
+    private final RecipeService recipeService;
+    public RecipeController (RecipeService recipeService) {
+        this.recipeService = recipeService;
     }
 
     @GetMapping("/recipes/create")
@@ -45,7 +43,7 @@ public class RecipeController {
         modelMap.addAttribute("recipe", recipeService.getById(id));
         return "recipe-details";
     }
-    @GetMapping("/recipes/delete/{id}") // zastanómy się czy po nazwie przepisu czy po ID bo nazwe zna User Id nie koniecznie
+    @GetMapping("/recipes/delete/{id}")
     public String deleteBook(@PathVariable Integer id){
         log.info("deleted Recipe by id with  " + id);
         recipeService.deleteById(id);

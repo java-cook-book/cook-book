@@ -12,7 +12,7 @@
     </ul>
 </nav>
 
-<form method="post" th:action="@{/recipes/update}" th:object="${recipe}">
+<form method="post" th:action="@{/update}" th:object="${recipe}">
 
     <input type="hidden" th:field="*{id}"/>
 

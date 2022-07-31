@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "recipe")
 //klasa POJO - plain old java object - reprezentuje obiekt rzeczywisty
 public class Recipe {
     @Id

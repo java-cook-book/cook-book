@@ -14,7 +14,7 @@ public interface RecipeService {
 
     Recipe getById(Integer id);
 
- List<Recipe> findByTag(String tag);
+    List<Recipe> findByKeyword(String keyword);
 
     void update(Recipe recipe);
 

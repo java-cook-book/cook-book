@@ -2,6 +2,7 @@ package cookbook.service.impl;
 
 
 import cookbook.entity.RecipeEntity;
+import cookbook.model.Recipe;
 import cookbook.repository.RecipeRepository;
 import cookbook.service.RecipeService;
 
@@ -15,19 +16,23 @@ import java.util.List;
 
 public class RecipeServiceImpl implements RecipeService {
     @Autowired
-    private  RecipeRepository recipeRepository;
+    private RecipeRepository recipeRepository;
 
     @Override
-    public void save(RecipeEntity recipe) {
-        recipeRepository.save(recipe);
+    public void save(Recipe recipe) {
+        recipeRepository.save(new RecipeEntity(recipe.getId(), recipe.getRecipeName(),
+                recipe.getDescription(),
+                recipe.getIngredients(),
+                recipe.getDirections(),
+                recipe.getTag(),
+                recipe.getReleaseDate()));
     }
 
     @Override
     public List<RecipeEntity> getAll() {
-        List<RecipeEntity> recipes = (List<RecipeEntity>)recipeRepository.findAll();
+        List<RecipeEntity> recipes = (List<RecipeEntity>) recipeRepository.findAll();
         return recipes;
     }
-
 
 
     @Override
@@ -35,8 +40,14 @@ public class RecipeServiceImpl implements RecipeService {
         recipeRepository.deleteById(id);
     }
 
-    public void update(RecipeEntity recipe){
-        recipeRepository.save(recipe);
+    public void update(Recipe recipe) {
+        recipeRepository.save(new RecipeEntity(recipe.getId(),
+                recipe.getRecipeName(),
+                recipe.getDescription(),
+                recipe.getIngredients(),
+                recipe.getDirections(),
+                recipe.getTag(),
+                recipe.getReleaseDate()));
     }
 
 

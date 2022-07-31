@@ -1,6 +1,7 @@
 package cookbook.controller;
 
 
+import cookbook.model.Recipe;
 import cookbook.service.RecipeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +25,12 @@ public class RecipeController {
 
     @GetMapping("/recipes/create")
     public String showRecipeForm(ModelMap modelMap) {
-        modelMap.addAttribute("emptyRecipe", new RecipeEntity());
+        modelMap.addAttribute("emptyRecipe", new Recipe());
         return "recipe-create";
     }
 
     @PostMapping("/recipes/save")
-    public String handleNewRecipe(@ModelAttribute("emptyRecipe") RecipeEntity recipe) {
+    public String handleNewRecipe(@ModelAttribute("emptyRecipe") Recipe recipe) {
         recipeService.save(recipe);
         return "redirect:/";
     }
@@ -44,7 +45,6 @@ public class RecipeController {
             model.addAttribute("recipes", recipes);
             }
         return "recipe-list";
-
     }
     @GetMapping("/recipes/{id}")
     public String recipeDetails(@PathVariable Integer id, ModelMap modelMap){
@@ -65,7 +65,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes/update")
-    public String handleUpdatedRecipe(@ModelAttribute("recipe") RecipeEntity recipe, Errors errors) {
+    public String handleUpdatedRecipe(@ModelAttribute("recipe") Recipe recipe, Errors errors) {
         log.info("Handle recipe to update: " + recipe);
 
         if (errors.hasErrors()) {

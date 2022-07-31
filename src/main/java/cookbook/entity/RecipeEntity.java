@@ -35,7 +35,12 @@ public class RecipeEntity {
     private LocalDate releaseDate = LocalDate.now();
 
 
-
-
-
+    public RecipeEntity(String recipeName, String description, String ingredients, String directions, String tag, LocalDate releaseDate) {
+        this.recipeName = recipeName;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.directions = directions;
+        this.tag = tag;
+        this.releaseDate = releaseDate;
+    }
 }

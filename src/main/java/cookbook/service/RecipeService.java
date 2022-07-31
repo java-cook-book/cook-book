@@ -1,12 +1,13 @@
 package cookbook.service;
 
 import cookbook.entity.RecipeEntity;
+import cookbook.model.Recipe;
 
 import java.util.List;
 
 public interface RecipeService {
 
-    void save(RecipeEntity recipe);
+    void save(Recipe recipe);
 
     List<RecipeEntity> getAll();
 
@@ -16,7 +17,7 @@ public interface RecipeService {
 
     List<RecipeEntity> findByKeyword(String keyword);
 
-    void update(RecipeEntity recipe);
+    void update(Recipe recipe);
 
 
 

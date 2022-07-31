@@ -8,11 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import cookbook.model.Recipe;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -34,14 +31,20 @@ public class RecipeController {
     @PostMapping("/recipes/save")
     public String handleNewRecipe(@ModelAttribute("emptyRecipe") Recipe recipe) {
         recipeService.save(recipe);
-        return "redirect:/recipes/list";
+        return "redirect:/";
     }
 
-    @GetMapping("/recipes/list")
-    public String showRecipes(Model model) {
-        List<Recipe> recipeList = recipeService.getAll();
-        model.addAttribute("recipes", recipeService.getAll());
+    @RequestMapping(path = {"/","/search"})
+    public String showRecipes(Recipe recipe,Model model, String keyword) {
+        if(keyword != null){
+            List<Recipe> recipes = recipeService.findByKeyword(keyword);
+            model.addAttribute("recipes", recipes);
+        } else {
+            List<Recipe> recipes = recipeService.getAll();
+            model.addAttribute("recipes", recipes);
+            }
         return "recipe-list";
+
     }
     @GetMapping("/recipes/{id}")
     public String recipeDetails(@PathVariable Integer id, ModelMap modelMap){
@@ -52,7 +55,7 @@ public class RecipeController {
     public String deleteBook(@PathVariable Integer id){
         log.info("deleted Recipe by id with  " + id);
         recipeService.deleteById(id);
-        return "redirect:/recipes/list";
+        return "redirect:/";
     }
 
     @GetMapping("/recipes/edit/{id}")
@@ -71,13 +74,7 @@ public class RecipeController {
         }
 
         recipeService.save(recipe);
-        return "redirect:/recipes/list";
+        return "redirect:/";
     }
-    @GetMapping("/recipes/list/search/{tag}")
-    public String searchRecipeByTag(Model model, @PathVariable String tag) {
-        List<Recipe> recipes = recipeService.findByTag(tag);
-        model.addAttribute("recipes", recipes);
-        model.addAttribute("tag",tag);
-        return "recipe-list-search";
-    }
+
 }

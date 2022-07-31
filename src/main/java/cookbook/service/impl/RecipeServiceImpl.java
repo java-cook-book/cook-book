@@ -24,7 +24,8 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public List<Recipe> getAll() {
-        return recipeRepository.findAll();
+        List<Recipe> recipes = (List<Recipe>)recipeRepository.findAll();
+        return recipes;
     }
 
 
@@ -45,8 +46,8 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public List<Recipe> findByTag(String tag) {
-        return recipeRepository.findByTag(tag);
+    public List<Recipe> findByKeyword(String keyword) {
+        return recipeRepository.findByKeyword(keyword);
     }
 
 

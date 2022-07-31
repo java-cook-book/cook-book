@@ -1,22 +1,22 @@
 package cookbook.service;
 
-import cookbook.model.Recipe;
+import cookbook.entity.RecipeEntity;
 
 import java.util.List;
 
 public interface RecipeService {
 
-    void save(Recipe recipe);
+    void save(RecipeEntity recipe);
 
-    List<Recipe> getAll();
+    List<RecipeEntity> getAll();
 
     void deleteById(Integer id);
 
-    Recipe getById(Integer id);
+    RecipeEntity getById(Integer id);
 
-    List<Recipe> findByKeyword(String keyword);
+    List<RecipeEntity> findByKeyword(String keyword);
 
-    void update(Recipe recipe);
+    void update(RecipeEntity recipe);
 
 
 

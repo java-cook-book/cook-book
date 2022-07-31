@@ -6,6 +6,12 @@
     <title>Recipe details</title>
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a href="./recipe-list.html"><img src="../assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+    </ul>
+</nav>
+
 <table class="table">
     <thead>
     <tr>
@@ -29,9 +35,9 @@
     </tbody>
 </table>
 
-<td><a th:href="@{/comments/create}">Add comment</a> </td>
-<td><a th:href="@{/recipes/{id}/comments/(id=${recipe.id})}">View comments</a> </td>
-<a th:href="@{/}">Return to recipe list</a>
+<td><a th:href="@{/recipes/{recipeId}/comments/create(recipeId=${recipe.id})}">Add comment</a> </td>
+<td><a th:href="@{/recipes/{recipeId}/comments(recipeId=${recipe.id})}">View comments</a> </td>
+<a th:href="@{/recipes/list}">Return to recipe list</a>
 
 </body>
 </html>

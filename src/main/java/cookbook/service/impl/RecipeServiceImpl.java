@@ -1,7 +1,7 @@
 package cookbook.service.impl;
 
 
-import cookbook.model.Recipe;
+import cookbook.entity.RecipeEntity;
 import cookbook.repository.RecipeRepository;
 import cookbook.service.RecipeService;
 
@@ -18,13 +18,13 @@ public class RecipeServiceImpl implements RecipeService {
     private  RecipeRepository recipeRepository;
 
     @Override
-    public void save(Recipe recipe) {
+    public void save(RecipeEntity recipe) {
         recipeRepository.save(recipe);
     }
 
     @Override
-    public List<Recipe> getAll() {
-        List<Recipe> recipes = (List<Recipe>)recipeRepository.findAll();
+    public List<RecipeEntity> getAll() {
+        List<RecipeEntity> recipes = (List<RecipeEntity>)recipeRepository.findAll();
         return recipes;
     }
 
@@ -35,18 +35,18 @@ public class RecipeServiceImpl implements RecipeService {
         recipeRepository.deleteById(id);
     }
 
-    public void update(Recipe recipe){
+    public void update(RecipeEntity recipe){
         recipeRepository.save(recipe);
     }
 
 
     @Override
-    public Recipe getById(Integer id) {
+    public RecipeEntity getById(Integer id) {
         return recipeRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Recipe> findByKeyword(String keyword) {
+    public List<RecipeEntity> findByKeyword(String keyword) {
         return recipeRepository.findByKeyword(keyword);
     }
 

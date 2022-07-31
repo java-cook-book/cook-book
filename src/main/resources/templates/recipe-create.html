@@ -13,20 +13,20 @@
 </nav>
 <form method="post" th:action="@{/recipes/save}" th:object="${emptyRecipe}">
 
-    Nazwa Przepisu:
+    Recipe Name:
     <input type="text" th:field="*{recipeName}">
-    Opis:
+    Description:
     <input type="text" th:field="*{description}">
-    Składniki:
+    Ingredients:
     <input type="text" th:field="*{ingredients}">
-    Wskazówki:
+    Directions:
     <input type="text" th:field="*{directions}">
     Tag:
     <input type="text" th:field="*{tag}">
-    Data:
-    <input type="text" th:field="*{releaseDate}">
 
-    <button type="submit">Dodaj Przepis</button>
+    <input type="hidden" th:field="*{releaseDate}">
+
+    <button type="submit">Add Recipe</button>
 
 </form>
 </body>

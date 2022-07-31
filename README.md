@@ -10,7 +10,7 @@ web application with recipes
 
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Thymeleaf](https://www.thymeleaf.org/)
-- [TACIT CSS](https://yegor256.github.io/tacit/)
+- [Bootstrap_CSS](https://yegor256.github.io/tacit/)
 - [PostgreSQL](https://www.postgresql.org)
 - [ElephantSQL](https://www.elephantsql.com)
 
@@ -18,7 +18,7 @@ web application with recipes
 
 - [@Cy3iu](https://github.com/Cy3iu)
 - [@piekarowa](https://github.com/piekarowa)
-- [@MarekOkarma](https://github.com/MarekOkarma)
+
 
 ## Roadmap
 

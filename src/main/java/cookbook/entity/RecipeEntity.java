@@ -1,4 +1,4 @@
-package cookbook.model;
+package cookbook.entity;
 
 
 
@@ -16,8 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "recipe")
-//klasa POJO - plain old java object - reprezentuje obiekt rzeczywisty
-public class Recipe {
+public class RecipeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -33,7 +32,7 @@ public class Recipe {
     private String tag;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate releaseDate;
+    private LocalDate releaseDate = LocalDate.now();
 
 
 

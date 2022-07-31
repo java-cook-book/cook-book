@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+    <title>Recipe list</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.5.min.css"/>
+</head>
+<body>
+<table>
+    <nav>
+        <ul>
+            <li><a href="./recipe-list.html"><img src="./assets/CookBookLogo.jpg" alt="CookBookLogo" style="height: 150px;"></a></li>
+        </ul>
+    </nav>
+    <thead>
+    <tr>
+
+        <th>Content</th>
+        <th>Username</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="comment : ${comments}">
+        <td th:text="${comment.content}"/>
+        <td th:text="${comment.userName}"/>
+
+
+
+        <td><a th:href="@{/comments/{id}/(id=${recipe.id})}">details</a></td>
+        <td><a th:href="@{/comments/edit/{id}/(id=${comment.id})}">edit</a></td>
+        <td><a th:href="@{/comments/delete/{id}/(id=${recipe.id})}">delete</a> </td>
+
+    </tr>
+    </tbody>
+</table>
+<td><a th:href="@{/comment/create/}">add new comment</a> </td>
+</body>
+</html>

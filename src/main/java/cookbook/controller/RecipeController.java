@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import cookbook.model.Recipe;
+import cookbook.entity.RecipeEntity;
 
 import java.util.List;
 
@@ -24,23 +24,23 @@ public class RecipeController {
 
     @GetMapping("/recipes/create")
     public String showRecipeForm(ModelMap modelMap) {
-        modelMap.addAttribute("emptyRecipe", new Recipe());
+        modelMap.addAttribute("emptyRecipe", new RecipeEntity());
         return "recipe-create";
     }
 
     @PostMapping("/recipes/save")
-    public String handleNewRecipe(@ModelAttribute("emptyRecipe") Recipe recipe) {
+    public String handleNewRecipe(@ModelAttribute("emptyRecipe") RecipeEntity recipe) {
         recipeService.save(recipe);
         return "redirect:/";
     }
 
     @RequestMapping(path = {"/","/search"})
-    public String showRecipes(Recipe recipe,Model model, String keyword) {
+    public String showRecipes(RecipeEntity recipe, Model model, String keyword) {
         if(keyword != null){
-            List<Recipe> recipes = recipeService.findByKeyword(keyword);
+            List<RecipeEntity> recipes = recipeService.findByKeyword(keyword);
             model.addAttribute("recipes", recipes);
         } else {
-            List<Recipe> recipes = recipeService.getAll();
+            List<RecipeEntity> recipes = recipeService.getAll();
             model.addAttribute("recipes", recipes);
             }
         return "recipe-list";
@@ -65,7 +65,7 @@ public class RecipeController {
     }
 
     @PostMapping("/recipes/update")
-    public String handleUpdatedRecipe(@ModelAttribute("recipe") Recipe recipe, Errors errors) {
+    public String handleUpdatedRecipe(@ModelAttribute("recipe") RecipeEntity recipe, Errors errors) {
         log.info("Handle recipe to update: " + recipe);
 
         if (errors.hasErrors()) {
